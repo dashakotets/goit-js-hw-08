@@ -67,7 +67,7 @@ const images = [
 
 
 const createCardImg = card => {
-    return `<li class="gallery-item">
+  return `<li class="gallery-item">
   <a class="gallery-link" href="${card.original}">
     <img
       class="gallery-image"
@@ -85,22 +85,21 @@ const CardImgTemplate = images.map(image => createCardImg(image)).join('');
 const imgGallery = document.querySelector('.js-gallery');
 imgGallery.innerHTML = CardImgTemplate;
 
-const onCardClick = event => { 
+const onCardClick = event => {
   event.preventDefault()
-    if (event.target === event.currentTarget) {
-        return;
-    };
+  if (event.target === event.currentTarget) {
+    return;
+  };
 
-    const cardImg = event.target.closest('.gallery-image');
-    
-    const instance = basicLightbox.create(`
+  const cardImg = event.target.closest('.gallery-image');
+
+  const instance = basicLightbox.create(`
     <img src="${cardImg.dataset.source}" width="800" height="600">
     `);
 
-    instance.show();
+  instance.show();
 };
 
 imgGallery.addEventListener('click', onCardClick);
 
 const cardLink = document.querySelectorAll('.gallery-link');
-// cardLink.forEach(link => addEventListener('click', event => event.preventDefault()));
