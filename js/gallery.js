@@ -86,12 +86,12 @@ const imgGallery = document.querySelector('.js-gallery');
 imgGallery.innerHTML = CardImgTemplate;
 
 const onCardClick = event => { 
+  event.preventDefault()
     if (event.target === event.currentTarget) {
         return;
     };
 
     const cardImg = event.target.closest('.gallery-image');
-    // const 
     
     const instance = basicLightbox.create(`
     <img src="${cardImg.dataset.source}" width="800" height="600">
@@ -103,4 +103,4 @@ const onCardClick = event => {
 imgGallery.addEventListener('click', onCardClick);
 
 const cardLink = document.querySelectorAll('.gallery-link');
-cardLink.forEach(link => addEventListener('click', event => event.preventDefault()));
+// cardLink.forEach(link => addEventListener('click', event => event.preventDefault()));
